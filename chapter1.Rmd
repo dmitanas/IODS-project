@@ -3,7 +3,7 @@ title: "Hello!"
 output: html_document
 ---   
 
-*I am very excited about the course. I expect to learn how to use R in my future research projects, what are the methods and tools that R provides us for data analysis. This course was advised to me by my friend who completed it two years ago.*
+*I am very excited about the course. I expect to learn how to use R in my future research projects, what are the methods and tools that R provides us for data analysis. This course was advised to me by my friend who completed it two years ago. Also created GitHub Repository.*
 
 My GitHub link to repository:
 [link](https://github.com/dmitanas/IODS-project/)
