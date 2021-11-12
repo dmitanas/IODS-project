@@ -1,7 +1,9 @@
 ---
-title: "Hello!"
+title: "Chapter 1. Start"
 output: html_document
 ---   
+
+# **Chapter 1. Start** 
 
 *I am very excited about the course. I expect to learn how to use R in my future research projects, what are the methods and tools that R provides us for data analysis. This course was advised to me by my friend who completed it two years ago. Also created GitHub Repository.*
 
