@@ -1,0 +1,91 @@
+title: "**Chapter 3. Logistic regression**"
+author: "Anastasija Dmitrijeva"
+output:
+  html_document:
+    theme: cosmo
+    toc: true
+    toc_depth: 2
+    fig_caption: true
+    fig_width: 6
+    fig_height: 4
+
+---
+
+# **Chapter 3. Logistic regression**
+
+```{r}
+alc_cons <- read.table("student_mat_por.txt")
+
+alc_con <- read.csv("https://github.com/rsund/IODS-project/raw/master/data/alc.csv", sep = ",", header = TRUE)
+
+str(alc_cons)
+
+dim(alc_cons)
+
+str(alc_con)
+
+dim(alc_con)
+
+colnames(alc_con)
+
+# The data set that I've created is different from the data set provided by the link in the task. Since I am not sure that my data set is correct, I will use the data set from the link.
+
+# I assume that there are relationships between high/low alcohol consumption variable and these variables: studytime, higher, famrel, absences. Therefore, my hypotheses are:
+
+# Ho-1: Alcohol consumption does not impact student weekly study time.
+# H1-1: Alcohol consumption impacts student weekly study time.
+
+# H0-2: Alcohol consumption does not impact student health status.
+# H1-2: Alcohol consumption impacts student health status.
+
+# H0-3: Alcohol consumption does not impact student quality of family relationships.
+# H1-3: Alcohol consumption impacts student quality of family relationships.
+
+# H0-4: Alcohol consumption does not impact student number of school absences.
+# H1-4: Alcohol consumption impacts student number of school absences.
+
+# In the result, I have 4 alternative hypotheses and 4 zero hypotheses.
+
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+
+g1 <- ggplot(alc_con, aes(x = high_use, y = studytime, col = sex))
+
+g1 + geom_boxplot() + ggtitle("Student study time by alcohol consumption and sex")
+
+g2 <- ggplot(alc_con, aes(x = high_use, y = absences, col = sex))
+
+g2 + geom_boxplot() + ggtitle("Student absences by alcohol consumption and sex")
+
+g3 <- ggplot(alc_con, aes(x = high_use, y = health, col = sex))
+
+g3 + geom_boxplot() + ggtitle("Student current health status by alcohol consumption and sex")
+
+g4 <- ggplot(alc_con, aes(x = high_use, y = famrel, col = sex))
+
+g4 + geom_boxplot() + ggtitle("Student quality of family relationships by alcohol consumption and sex")
+
+# Based on the exploration, I reject H1-2, H0-1, H0-3, H0-4, and accept H1-1, H0-2, H1-3, H1-4. Alcohol consumption impacts student weekly study time, quality of family relationships and number of school absences, but does not impact health status.
+
+m <- glm(high_use ~ famrel + studytime + absences, data = alc_con, family = "binomial")
+
+summary(m)
+
+coef(m)
+
+probabilities <- predict(m, type = "response")
+
+alc_con <- mutate(alc_con, probability = probabilities)
+
+alc_con <- mutate(alc_con, prediction = probability > 0.5)
+
+select(alc_con, famrel, studytime, absences, high_use, probability, prediction) %>% tail(10)
+
+table(high_use = alc_con$high_use, prediction = alc_con$prediction)
+
+g <- ggplot(alc_con, aes(x = probability, y = high_use, col = prediction))
+
+g + geom_point()
+
+table(high_use = alc_con$high_use, prediction = alc_con$prediction) %>% prop.table %>% addmargins
