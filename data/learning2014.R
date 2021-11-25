@@ -54,3 +54,15 @@ str(newlearning2014)
 write.table(newlearning2014, file = "newlearning2014.txt")
 
 read.table("newlearning2014.txt")
+
+alc_cons <- read.table("student_mat_por.txt")
+
+str(alc_cons)
+
+dim(alc_cons)
+
+alc_cons
+
+colnames(alc_cons)
+
+# This data deals with student achievement in secondary education of two Portuguese schools. It's attributes are student grades, demographic, social and school related features. This data is provided regarding the performance in two distinct subjects: Mathematics (mat) and Portuguese language (por). 

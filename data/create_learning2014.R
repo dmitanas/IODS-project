@@ -1,0 +1,1 @@
+# Anastasija Dmitrijeva, 10.11.2021. This script is my second homework for the course 'Introduction to Open Data Science'.

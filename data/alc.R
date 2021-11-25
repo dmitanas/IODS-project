@@ -46,9 +46,6 @@ for(column_name in notjoined_columns) {
 
 glimpse(alc)
 
-# Then use 'alc_use' to create a new logical 
-# column 'high_use' which is TRUE for students for which 'alc_use' is greater than 2 (and FALSE otherwise)
-
 library(dplyr)
 library(ggplot2)
 
