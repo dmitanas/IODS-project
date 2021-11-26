@@ -13,3 +13,13 @@ output:
 ---
 
 # **Chapter 6. Analysis of longitudinal data**
+
+```{r}
+
+# Note: As you read the data sets in your chapter6.Rmd you may have to factor the categorical variables again, as R may not recognise them automatically as factors.
+
+# Note that you must SWAP the data sets! :) It is NOT a simple copy & paste of my book!
+
+# Implement the analyses of Chapter 8 of MABS using the RATS data. (0-7 points: 0-4 points for graphs or analysis results + 0-3 points for their interpretations)
+
+# Implement the analyses of Chapter 9 of MABS using the BPRS data. (0-8 points: 0-4 points for graphs or analysis results + 0-4 points for their interpretations). One more time: Note the SWAP of the data sets. And feel free with the graphs!
