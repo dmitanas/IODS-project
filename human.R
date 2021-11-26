@@ -18,6 +18,8 @@ library(dplyr)
 
 colnames(hd)
 
+colnames(gii)
+
 colnames(hd)[3] <- "HDI"
 
 colnames(hd)[4] <- "life_exp"
