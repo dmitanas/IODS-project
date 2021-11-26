@@ -43,7 +43,7 @@ summary(boston_scaled["crim"])
 
 b <- boston_scaled["crim"]
 
-bins <- quantile(b)
+bins <- quantile(boston_scaled$crim)
 
 crime <- cut(boston_scaled$crim, breaks = bins, include.lowest = TRUE, labels = c("low", "med_low", "med_high", "high"))
 
@@ -57,13 +57,7 @@ train <- boston_scaled[ind,]
 
 test <- boston_scaled[-ind,]
 
-# Creattion of a categorical variable of the crime rate in the Boston dataset (from the scaled crime rate). Quantiles are used as the break points in the categorical variable. Old crime rate variable is dropped from the dataset. Dataset is divided to train and test sets, so that 80% of the data belongs to the train set. 
-
-lda.fit <- lda(crime ~ ., data = train)
-
-plot(lda.fit)
-
-# LDA (bi)plot.
+# Creation of a categorical variable of the crime rate in the Boston dataset (from the scaled crime rate). Quantiles are used as the break points in the categorical variable. Old crime rate variable is dropped from the dataset. Dataset is divided to train and test sets, so that 80% of the data belongs to the train set. 
 
 
 
