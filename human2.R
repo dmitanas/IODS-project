@@ -67,7 +67,3 @@ human__ <- human_[complete.cases(human_), ]
 str(human__)
 
 write.table(human__, file = "human2.txt", row.names = TRUE)
-
-# The data now have 155 observations and 8 variables. 
-# Save the human data in your data folder including the row names. 
-# You can overwrite your old ‘human’ data. (1 point)
